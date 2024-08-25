@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可能你也听jay</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .shell {
+            width: 100%;
+            position: relative;
+            padding: 80px 0;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .shell:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(99, 99, 99, 0.8);
+            content: "";
+        }
+
+        .header {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .title {
+            color: #fff;
+            font-size: 46px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .timeline {
+            display: flex;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            flex-direction: column;
+            max-width: 700px;
+            position: relative;
+        }
+
+        .content-title {
+            font-weight: normal;
+            font-size: 66px;
+            margin: -10px 0 0 0;
+            transition: 0.4s;
+            padding: 0 10px;
+            box-sizing: border-box;
+            color: #fff;
+        }
+
+        .content-desc {
+            margin: 0;
+            font-size: 15px;
+            box-sizing: border-box;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 25px;
+        }
+
+        .timeline:before {
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            margin-left: -1px;
+            content: "";
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .item {
+            padding: 40px 0;
+            opacity: 0.3;
+            filter: blur(2px);
+            transition: 0.5s;
+            box-sizing: border-box;
+            width: calc(50% - 40px);
+            display: flex;
+            position: relative;
+            transform: translateY(-80px);
+        }
+
+        .item:before {
+            /* 设置在伪元素before中的内容  */
+            content: attr(data-text);
+            letter-spacing: 3px;
+            width: 100%;
+            position: absolute;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            border-left: 2px solid rgba(255, 255, 255, 0.5);
+            top: 70%;
+            margin-top: -5px;
+            padding-left: 15px;
+            opacity: 0;
+            right: calc(-100% - 56px);
+            font: 900 20px '';
+            letter-spacing: 5px;
+        }
+
+        .item:nth-child(even) {
+            align-self: flex-end;
+        }
+
+        .item:nth-child(even):before {
+            right: auto;
+            text-align: right;
+            left: calc(-100% - 56px);
+            padding-left: 0;
+            border-left: none;
+            border-right: 2px solid rgba(255, 255, 255, 0.5);
+            padding-right: 15px;
+        }
+
+        .item--active {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0px);
+        }
+
+        .item--active:before {
+            top: 50%;
+            transition: 0.3s all 0.2s;
+            opacity: 1;
+        }
+
+        .item--active .content-title {
+            margin: -50px 0 20px 0;
+        }
+
+        .img {
+            max-width: 100%;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 16px;
+            letter-spacing: 5px;
+            margin: 10px 0 0 0;
+            font-weight: normal;
+        }
+
+        .footer {
+            padding: 180px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #999;
+            display: inline-block;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .item {
+                align-self: baseline !important;
+                width: 100%;
+                padding: 0 30px 150px 80px;
+            }
+
+            .item:before {
+                left: 10px !important;
+                padding: 0 !important;
+                top: 50px;
+                text-align: center !important;
+                width: 60px;
+                border: none !important;
+            }
+
+            .item:last-child {
+                padding-bottom: 40px;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .timeline:before {
+                left: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="shell" id="shell">
+        <div class="header">
+            <h2 class="title">也许你也听jay</h2>
+            <h3 class="subtitle">Geek</h3>
+        </div>
+        <div class="timeline">
+
+
+            <div class="item" data-text="《晴天》">
+                <div class="content">
+                    <img class="img" src="./img/01.jpg" />
+                    <h2 class="content-title">零</h2>
+                    <p class="content-desc">
+                        “从前从前有个人爱你很久，
+                                             但偏偏风渐渐把距离吹得好远。”
+                    </p>
+                    <!-- //<audio class="item-audio" src=./music/晴天.mp3 id="dd" autoplay="autoplay" controls="controls" loop="loop"></audio> -->
+                    <audio class="item-audio" src="./music/晴天.mp3" autoplay loop></audio>
+                </div>
+            </div>
+
+            <div class="item" data-text="《开不了口》">
+                <div class="content">
+                    <img class="img" src="./img/02.jpg" />
+                    <h2 class="content-title">壹</h2>
+                    <p class="content-desc">
+                       明明开不了口，却又想你听得到。
+                    </p>
+                    <!-- //<audio class="item-audio" src=./music/晴天.mp3 id="dd" autoplay="autoplay" controls="controls" loop="loop"></audio> -->
+                    <audio class="item-audio" src="./music/开不了口.mp3" autoplay loop></audio>
+                </div>
+            </div>
+
+            <div class="item" data-text="《你听得到》">
+                <div class="content">
+                    <img class="img" src="./img/03.jpg" />
+                    <h2 class="content-title">贰</h2>
+                    <p class="content-desc">
+                        “本来讨厌下雨的天空，
+                                           直到听有人说爱我 ”
+                        你听不到密文，但我会帮你写在下面。
+                        Q7u+cyiOQtKHRMqZNzPpApgmTL4j+TE=
+                    </p>
+                    <audio class="item-audio" src="./music/你听得到.mp3" autoplay loop></audio>
+                </div>
+            </div>
+
+            <div class="item" data-text="《园游会》">
+                <div class="content">
+                    <img class="img" src="./img/04.jpg" />
+                    <h2 class="content-title">叁</h2>
+                    <p class="content-desc">
+                        “你的脸没有化妆，我却疯狂爱上”
+                    </p>
+                    <audio class="item-audio" src="./music/园游会.mp3" autoplay loop></audio>
+                </div>
+            </div>
+
+            <div class="item" data-text="《大笨钟》">
+                <div class="content">
+                    <img class="img" src="./img/05.jpg" />
+                    <h2 class="content-title">肆</h2>
+                    <p class="content-desc">
+                        “我走在你喜欢的电影场景里，你却不在我想要的场景里。”
+                    </p>
+                    <audio class="item-audio" src="./music/大笨钟.mp3" autoplay loop></audio>
+                </div>
+            </div>
+
+            <div class="item" data-text="《爱在西元前》">
+                <div class="content">
+                    <img class="img" src="./img/06.jpg" />
+                    <h2 class="content-title">伍</h2>
+                    <p class="content-desc">
+                        “你在橱窗前凝视碑文的字眼，我却在旁静静欣赏你那张我深爱的脸”
+                        爱在西元前的英文是lovebeforeBC，恰如你需要的密钥
+                    </p>
+                    <audio class="item-audio" src="./music/爱在西元前.mp3" autoplay loop></audio>
+                </div>
+            </div>
+
+            <div class="item" data-text="《手写的从前》">
+                <div class="content">
+                    <img class="img" src="./img/07.jpg" />
+                    <h2 class="content-title">陆</h2>
+                    <p class="content-desc">
+                        “当恋情已走远，我将你深埋在心里面”
+                    </p>
+                    <audio class="item-audio" src="./music/手写的从前.mp3" autoplay loop></audio>
+                </div>
+            </div>
+
+            <div class="item" data-text="《半岛铁盒》">
+                <div class="content">
+                    <img class="img" src="./img/08.jpg" />
+                    <h2 class="content-title">柒</h2>
+                    <p class="content-desc">
+                        “雨还没停，你就撑伞要走”
+                    </p>
+                    <audio class="item-audio" src="./music/半岛铁盒.mp3" autoplay loop></audio>
+                </div>
+            </div>
+
+
+            <div class="item" data-text="《七里香》">
+                <div class="content">
+                    <img class="img" src="./img/22.jpg" />
+                    <h2 class="content-title">捌</h2>
+                    <p class="content-desc">
+                        “我的思念，
+
+​                                  厚厚一叠”，
+
+                        听着七里香，我会拾起密钥，尝试用RC4来为解密画上句点，
+
+                        就像是某个晚霞清风的傍晚，风吹起了她的头发，她没有化妆，
+
+                        穿着寻常却精心挑选的衣服，像个故事的开端，向我走来。
+
+                        几行字形容不了她是我的谁，只是每当回想此刻时，七里香便开满了南山北。
+                    </p>
+                    <audio class="item-audio" src="./music/七里香.mp3" autoplay loop></audio>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer"><a>The End</a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+    window.onload = function() {
+    var firstAudio = document.querySelector('.item-audio');
+    firstAudio.volume = 1;  // 设置音量为50%
+    firstAudio.play().catch(function(error) {
+        console.log("Failed to play first audio:", error);
+    });
+
+    // 确保其他音频不播放并设置统一音量
+    var allAudios = document.querySelectorAll('.item-audio');
+    allAudios.forEach(function(audio, index) {
+        audio.volume = 1;  // 设置统一音量为50%
+        if (index !== 0) {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+    });
+};
+
+(function ($) {
+    $.fn.timeline = function () {
+        var selectors = {
+            id: $(this),
+            item: $(this).find(".item"),
+            activeClass: "item--active",
+            img: ".img",
+            audio: ".item-audio"
+        };
+
+        console.log("Initializing timeline...");
+        selectors.item.eq(0).addClass(selectors.activeClass);
+        selectors.id.css(
+            "background-image",
+            "url(" +
+            selectors.item
+                .first()
+                .find(selectors.img)
+                .attr("src") +
+            ")"
+        );
+
+        var firstAudio = selectors.item.eq(0).find(selectors.audio)[0];
+        firstAudio.play().catch(function(error) {
+            console.log("Failed to play first audio:", error);
+        });
+
+        var itemLength = selectors.item.length;
+
+        // 监听每个音频的 ended 事件
+        selectors.item.find(selectors.audio).on('ended', function () {
+            var currentIndex = selectors.item.index($(this).closest('.item'));
+            var nextIndex = currentIndex + 1;
+
+            if (nextIndex < itemLength) {
+                var nextItem = selectors.item.eq(nextIndex);
+                var nextAudio = nextItem.find(selectors.audio)[0];
+
+                // 页面滚动到下一个item
+                $('html, body').animate({
+                    scrollTop: nextItem.offset().top
+                }, 1000, function() {
+                    // 在滚动完成后播放下一个音频
+                    nextAudio.play().catch(function (error) {
+                        console.log("Failed to play next audio:", error);
+                    });
+
+                    // 更新背景图片和当前激活的item
+                    selectors.id.css(
+                        "background-image",
+                        "url(" +
+                        nextItem.find(selectors.img).attr("src") +
+                        ")"
+                    );
+                    selectors.item.removeClass(selectors.activeClass);
+                    nextItem.addClass(selectors.activeClass);
+                });
+            }
+        });
+
+        $(window).scroll(function () {
+            var max, min;
+            var pos = $(this).scrollTop();
+
+            selectors.item.each(function (i) {
+                min = $(this).offset().top;
+                max = $(this).height() + $(this).offset().top;
+
+                if (pos <= max - 10 && pos >= min) {
+                    selectors.id.css(
+                        "background-image",
+                        "url(" +
+                        $(this)
+                            .find(selectors.img)
+                            .attr("src") +
+                        ")"
+                    );
+                    selectors.item.removeClass(selectors.activeClass);
+                    $(this).addClass(selectors.activeClass);
+
+                    // 停止所有item的音乐
+                    selectors.item.find(selectors.audio).each(function () {
+                        this.pause();
+                        this.currentTime = 0;
+                    });
+
+                    // 播放当前激活item的音乐
+                    var currentAudio = $(this).find(selectors.audio)[0];
+                    currentAudio.play().catch(function(error) {
+                        console.log("Failed to play current audio:", error);
+                    });
+                }
+            });
+        });
+    };
+})(jQuery);
+
+$("#shell").timeline();
+    </script>
+</body>
+
+</html>
